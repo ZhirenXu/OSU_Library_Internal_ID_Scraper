@@ -27,11 +27,12 @@ def main():
     remainRecords = 0
     
     # get inputfile
-    print("Please enter csv file name. The file must in the same folder with your main.py program: ")
+    print("******Json ID Scrapper v1.0.2******      author: Zhiren Xu\n")
+    print("Please enter csv file name with .csv. The file must in the same folder with your main.py program: ")
     fileIn = input()
     
     # get outputfile
-    print("Please enter output file name: ")
+    print("Please enter output file name with .csv: ")
     fileOut = input()
     try:
         pageUrl = ReadCSV.readCSV(fileIn)
@@ -77,7 +78,6 @@ def main():
             idList.pop(0)
             iter_ += 1
         iter_ = 0
-        idList.insert(0, collectionTitle)
         print("OK")
         print(i, "/", len(pageUrl), " has been processed.")
         idListCombine.append(idList)
