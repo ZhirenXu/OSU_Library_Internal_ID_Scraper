@@ -10,15 +10,16 @@ from functions import CreateIDList
 #           A list of url that need to be processed
 # @param    idList
 #           A list that contain Json ID
-
-def runProcess(urlList, idList):
+# @param    session
+#           An object contain login credential
+def runProcess(urlList, idList, session):
     idListCombine = []
     i = 0
     j = 0
     
     for url in urlList:
         # parse url
-        parsedUrl = ParseUrl.parseUrl(url)
+        parsedUrl = ParseUrl.parseUrl(url, session)
         # find the name of collection
         collectionTitle = GetCollectionName.getCollectionName(parsedUrl)
         # find how many records in this collection
@@ -30,7 +31,7 @@ def runProcess(urlList, idList):
         nextLink = maxRecordLink
         # after get that link, read json data from it
         while remainRecords > 0:
-            parsedNextLink = GetJson.getJson(nextLink, idList)
+            parsedNextLink = GetJson.getJson(nextLink, idList, session)
             nextPage = GetNextPage.getNextPage(parsedNextLink)
             nextLink = nextPage
             remainRecords = numOfRecords - len(idList)
