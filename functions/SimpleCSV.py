@@ -62,7 +62,7 @@ def writeCSVZipped(combinedList, outputFile):
 # @return       fileIn
 #               Input CSV file
 def getCSVInput():
-    print("Please enter csv file name with .csv. \nThe file must in the same folder with your main.py program: ")
+    print("Please enter csv file name with .csv. \nThe file must in the same folder with your id scraper.py program: ")
     fileIn = input()
 
     return fileIn

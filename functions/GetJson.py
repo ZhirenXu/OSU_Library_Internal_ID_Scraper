@@ -10,16 +10,19 @@ from functions import ParseUrl
 #           an unparsed input url
 # @param    idContainer
 #           an container to store id
-def getJson(url, idContainer):
+# @param    session
+#           an object contain login credential
+# @return 
+def getJson(url, idContainer, session):
     print("Get JSON data...", end = "")
-    soup = ParseUrl.parseUrl(url)
+    soup = ParseUrl.parseUrl(url, session)
     # find tag which contains json link
     linkTag = soup.find('link', attrs={"type": "application/json"})
     # extract 100-record json link from attribute
     jsonLink = "https://library.osu.edu"
     jsonLink += linkTag.get('href')
     # open json link
-    jsonPage = requests.get(jsonLink)
+    jsonPage = session.get(jsonLink)
     jsonContent = jsonPage.json()
     try:
         for tuple_ in jsonContent["docs"]:
