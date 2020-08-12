@@ -3,9 +3,9 @@ import sys
 ## print program info
 def showInfo():
     print("******************************")
-    print("*   JSON ID Scrapper v1.0.4  *")
+    print("*   JSON ID Scrapper v1.0.5  *")
     print("*     Author: Zhiren Xu      *")
-    print("*   published data: 8/5/20   *")
+    print("*   published data: 8/12/20  *")
     print("******************************")
 
 ## print exit message

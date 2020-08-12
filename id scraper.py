@@ -28,6 +28,7 @@ def main():
     # write data to csv file
     print("Writing identifiers into ", fileOut, "...")
     outFile = open(fileOut, 'w', encoding = 'utf8', newline='')
+    SimpleCSV.writeCSV(["internal id url"], outFile)
     SimpleCSV.writeCSVZipped(idListCombine, outFile)
     
     # program exit

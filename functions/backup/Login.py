@@ -2,7 +2,7 @@ import requests
 import mechanicalsoup
 import sys
 import getpass
-import time
+
 # When login successful, the length of response text is 17228
 SuccessfulLogin = 17228
 # when login is not vaild, the length of response text is 11864
@@ -12,7 +12,6 @@ def login():
     url = "https://library.osu.edu/dc/users/sign_in"
     crediential = {}
     browser = ()
-    i = 0
     
     print("Login url: https://library.osu.edu/dc/users/sign_in")
     status = True
@@ -21,7 +20,6 @@ def login():
         login_page = browser.open(url)
         login_form = browser.select_form('form[action="/dc/users/sign_in?locale=en"]')
         crediential = getCreditential()
-        t_start = time.process_time()
         browser["user[email]"] = crediential["Email"]
         browser["user[password]"] = crediential["Password"]
         response = browser.submit_selected()
@@ -35,9 +33,6 @@ def login():
                 sys.exit()
             elif userChoice == "Y" or userChoice == "y":
                 login()
-        t_end = time.process_time()
-        print("Process Time: ", t_end - t_start)
-        print("\n")
     return browser
 
 ## ask user to type in login info
@@ -67,4 +62,3 @@ def wantLogin():
     if choice == 'Y' or choice == 'y':
         return True
     return False
-
