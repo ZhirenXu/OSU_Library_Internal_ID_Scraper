@@ -4,7 +4,7 @@ from functions import GetMaxRecords
 from functions import GetJson
 from functions import GetNextPage
 from functions import CreateIDList
-
+import progressbar
 ##Main function of ID scrapper
 # @param    urlList
 #           A list of url that need to be processed
@@ -16,7 +16,7 @@ def runProcess(urlList, idList, session):
     idListCombine = []
     i = 0
     j = 0
-    
+    k = 0
     for url in urlList:
         # parse url
         parsedUrl = ParseUrl.parseUrl(url, session)
@@ -31,12 +31,13 @@ def runProcess(urlList, idList, session):
         nextLink = maxRecordLink
         # after get that link, read json data from it
         while remainRecords > 0:
-            parsedNextLink = GetJson.getJson(nextLink, idList, session)
-            nextPage = GetNextPage.getNextPage(parsedNextLink)
-            nextLink = nextPage
-            remainRecords = numOfRecords - len(idList)
-            print(remainRecords)
-            print("Number of id scrapped: ", len(idList))
+            for k in progressbar.progressbar(range(int(numOfRecords/100) + 1), redirect_stdout=True):
+                parsedNextLink = GetJson.getJson(nextLink, idList, session)
+                nextPage = GetNextPage.getNextPage(parsedNextLink)
+                nextLink = nextPage
+                remainRecords = numOfRecords - len(idList)
+                print(remainRecords)
+                print("Number of id scrapped: ", len(idList))
         i += 1
         idListCombine = CreateIDList.createIDList(i, j, idList, idListCombine)
         idList = []
