@@ -1,7 +1,6 @@
 # OSU-Library-Internal-ID-Scaper
 ## What does it do
-   Each input url is a webpage of digital collection records, storged as Json. The script will expand that page to 100 records per page (maximum number of displayed records)  
-   and extract their internal ids from these records, then using these ids to build url which point to each records. Urls will be outputted in csv file.
+   Each input url is a webpage of digital collection records, storged as Json. The script will expand that page from 10 records per page to 100 records per page (maximum number of displayed records) and extract their internal ids from these records, then using these ids to build url which point to each record. Urls will be outputted in csv file.
 
 ## Prerequisites
    Run in Windows10 environment. 
