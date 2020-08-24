@@ -1,6 +1,7 @@
 # OSU-Library-Internal-ID-Scaper
 ## What does it do
-   Foreach input url
+   Each input url is a webpage of digital collection records, storged as Json. The script will expand that page to 100 records per page (maximum number of displayed records)  
+   and extract their internal ids from these records, then using these ids to build url which point to each records. Urls will be outputted in csv file.
 
 ## Prerequisites
    Run in Windows10 environment. 
@@ -17,7 +18,11 @@
 	  
 	  ProgressBar2  
       
-   If not installed, please type following command in CMD:
+   If not installed, please open CMD, go to the path of id scraper folder, then type following command:
+   
+	  pip install -r dependencies.txt  
+
+   If dependencies.txt doesn't exist or command above has failure, try manually install dependencies by tying following command:
    
       pip install MechanicalSoup 
       
