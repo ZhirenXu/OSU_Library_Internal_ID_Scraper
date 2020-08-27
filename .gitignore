@@ -1,0 +1,13 @@
+
+functions/__pycache__/Category_list.cpython-38.pyc
+functions/__pycache__/CreateIDList.cpython-38.pyc
+functions/__pycache__/GetCollectionName.cpython-38.pyc
+functions/__pycache__/GetJson.cpython-38.pyc
+functions/__pycache__/GetMaxRecords.cpython-38.pyc
+functions/__pycache__/GetNextPage.cpython-38.pyc
+functions/__pycache__/Greeting.cpython-38.pyc
+functions/__pycache__/Login.cpython-38.pyc
+functions/__pycache__/ParseUrl.cpython-38.pyc
+functions/__pycache__/RunProcess.cpython-38.pyc
+functions/__pycache__/SimpleCSV.cpython-38.pyc
+test4.csv
