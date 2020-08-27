@@ -11,3 +11,4 @@ functions/__pycache__/ParseUrl.cpython-38.pyc
 functions/__pycache__/RunProcess.cpython-38.pyc
 functions/__pycache__/SimpleCSV.cpython-38.pyc
 test4.csv
+*.pyc
