@@ -31,7 +31,12 @@ def runProcess(urlList, idList, session):
         nextLink = maxRecordLink
         # after get that link, read json data from it
         while remainRecords > 0:
-            for k in progressbar.progressbar(range(int(numOfRecords/100) + 1), redirect_stdout=True):
+            rangeValue = numOfRecords/100
+            if not (isinstance(rangeValue, int)):
+                rangeValue = int(rangeValue) + 1
+            else:
+                rangeValue = int(rangeValue)
+            for k in progressbar.progressbar(range(rangeValue), redirect_stdout=True):
                 parsedNextLink = GetJson.getJson(nextLink, idList, session)
                 nextPage = GetNextPage.getNextPage(parsedNextLink)
                 nextLink = nextPage

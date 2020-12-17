@@ -19,8 +19,15 @@ def getJson(url, idContainer, session):
     # find tag which contains json link
     linkTag = soup.find('link', attrs={"type": "application/json"})
     # extract 100-record json link from attribute
-    jsonLink = "https://library.osu.edu"
-    jsonLink += linkTag.get('href')
+    try:
+        jsonLink = "https://library.osu.edu"
+        jsonLink += linkTag.get('href')
+    except:
+        print("\nFail to find Json link!")
+        print("Error when accessing: ", url)
+        print("Hit enter to exit.")
+        input()
+        sys.exit()
     # open json link
     jsonPage = session.get(jsonLink)
     jsonContent = jsonPage.json()
